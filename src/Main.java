@@ -26,7 +26,6 @@ public class Main {
                     manager.searchForFile(takeFileNameAsInput());
                     break;
                 case 5:
-                    System.out.println("Working Directory = " + System.getProperty("user.dir"));
                     System.exit(0);
                     break;
             }
@@ -49,12 +48,7 @@ public class Main {
         for (MenuEnum option : options) {
             System.out.println(option);
         }
-
         System.out.println("\n-----------Please choose an option--------------");
-    }
-
-    private  static void listFiles() {
-        String workingDir = System.getProperty("user.dir");
     }
 
     private  static String takeFileNameAsInput() {
