@@ -17,16 +17,13 @@ public class Main {
                     manager.getFilesInCurrentDir();
                     break;
                 case 2:
-                    Scanner myObj = new Scanner(System.in);  // Create a Scanner object
-                    System.out.println("Please enter the file name you want to create");
-                    String fileName = myObj.nextLine();  // Read user input
-                    manager.createFile(fileName);
+                    manager.createFile(takeFileNameAsInput());
                     break;
                 case 3:
-                    manager.deleteFile("New");
+                    manager.deleteFile(takeFileNameAsInput());
                     break;
                 case 4:
-                    manager.searchForFile("New");
+                    manager.searchForFile(takeFileNameAsInput());
                     break;
                 case 5:
                     System.out.println("Working Directory = " + System.getProperty("user.dir"));
@@ -58,5 +55,11 @@ public class Main {
 
     private  static void listFiles() {
         String workingDir = System.getProperty("user.dir");
+    }
+
+    private  static String takeFileNameAsInput() {
+        Scanner sc = new Scanner(System.in);  // Create a Scanner object
+        System.out.println("Please enter the file name");
+        return sc.nextLine();
     }
 }
