@@ -8,20 +8,24 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         while (true) {
             showMenu();
-            int choice = sc.nextInt();
-
-            FileManager manager = new FileManager();
-
-            switch (choice) {
-                case 1:
-                    manager.getFilesInCurrentDir();
-                    break;
-                case 2:
-                    showSubMenu(manager);
-                    break;
-                case 3:
-                    System.exit(0);
-                    break;
+            try {
+                int choice = sc.nextInt();
+                FileManager manager = new FileManager();
+                switch (choice) {
+                    case 1:
+                        manager.getFilesInCurrentDir();
+                        break;
+                    case 2:
+                        showSubMenu(manager);
+                        break;
+                    case 3:
+                        System.exit(0);
+                        break;
+                }
+            } catch (Exception ex ) {
+                String badInput = sc.next();
+                System.out.println(badInput + " is not a valid number, Please enter a valid number");
+                continue;
             }
         }
     }

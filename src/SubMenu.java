@@ -1,5 +1,5 @@
 public enum SubMenu {
-    ADD("1.Add File"),
+    ADD("1.Create File"),
     DELETE("2.Delete File"),
     SEARCH("3.Search"),
     BACK("4.Back");
