@@ -22,10 +22,9 @@ public class Main {
                         System.exit(0);
                         break;
                 }
-            } catch (Exception ex ) {
+            } catch (Exception ex) {
                 String badInput = sc.next();
                 System.out.println(badInput + " is not a valid number, Please enter a valid number");
-                continue;
             }
         }
     }
@@ -57,22 +56,26 @@ public class Main {
 
         System.out.println("\n-----------Sub Menu--------------");
         Scanner sc = new Scanner(System.in);
-        int choice = sc.nextInt();
-
-        switch (choice) {
-            case 1:
-                manager.createFile(takeFileNameAsInput());
-                break;
-            case 2:
-                manager.deleteFile(takeFileNameAsInput());
-                break;
-            case 3:
-                manager.searchForFile(takeFileNameAsInput());
-                break;
-            case 4:
-                //back
-                System.out.println("\nNavigating back to the main menu");
-                break;
+        try {
+            int choice = sc.nextInt();
+            switch (choice) {
+                case 1:
+                    manager.createFile(takeFileNameAsInput());
+                    break;
+                case 2:
+                    manager.deleteFile(takeFileNameAsInput());
+                    break;
+                case 3:
+                    manager.searchForFile(takeFileNameAsInput());
+                    break;
+                case 4:
+                    //back
+                    System.out.println("\nNavigating back to the main menu");
+                    break;
+            }
+        } catch (Exception e) {
+            String badInput = sc.next();
+            System.out.println(badInput + " is not a valid number, Please enter a valid number");
         }
     }
 
