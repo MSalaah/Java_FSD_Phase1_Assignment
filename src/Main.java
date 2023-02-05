@@ -12,20 +12,14 @@ public class Main {
 
             FileManager manager = new FileManager();
 
-            switch(choice) {
+            switch (choice) {
                 case 1:
                     manager.getFilesInCurrentDir();
                     break;
                 case 2:
-                    manager.createFile(takeFileNameAsInput());
+                    showSubMenu(manager);
                     break;
                 case 3:
-                    manager.deleteFile(takeFileNameAsInput());
-                    break;
-                case 4:
-                    manager.searchForFile(takeFileNameAsInput());
-                    break;
-                case 5:
                     System.exit(0);
                     break;
             }
@@ -51,7 +45,34 @@ public class Main {
         System.out.println("\n-----------Please choose an option--------------");
     }
 
-    private  static String takeFileNameAsInput() {
+    private static void showSubMenu(FileManager manager) {
+        SubMenu[] options = SubMenu.values();
+        for (SubMenu option : options) {
+            System.out.println(option);
+        }
+
+        System.out.println("\n-----------Sub Menu--------------");
+        Scanner sc = new Scanner(System.in);
+        int choice = sc.nextInt();
+
+        switch (choice) {
+            case 1:
+                manager.createFile(takeFileNameAsInput());
+                break;
+            case 2:
+                manager.deleteFile(takeFileNameAsInput());
+                break;
+            case 3:
+                manager.searchForFile(takeFileNameAsInput());
+                break;
+            case 4:
+                //back
+                System.out.println("\nNavigating back to the main menu");
+                break;
+        }
+    }
+
+    private static String takeFileNameAsInput() {
         Scanner sc = new Scanner(System.in);  // Create a Scanner object
         System.out.println("Please enter the file name");
         return sc.nextLine();
